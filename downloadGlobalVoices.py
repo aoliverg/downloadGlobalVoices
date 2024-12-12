@@ -32,7 +32,7 @@ def getAllLinks(year,month,lang):
         if link.startswith(url):
             text=[]
             camps=link.split("/")
-            if len(camps)>6:
+            if len(camps)>5:
                 all_links.append(link)
     cont=1            
     while 1:
