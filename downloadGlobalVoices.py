@@ -32,7 +32,7 @@ def getAllLinks(year,month,lang):
         if link.startswith(url):
             text=[]
             camps=link.split("/")
-            if len(camps)>5:
+            if len(camps)>3:
                 all_links.append(link)
     cont=1            
     while 1:
@@ -48,7 +48,7 @@ def getAllLinks(year,month,lang):
                 link=link['href'] 
                 if link.startswith(url):
                     camps=link.split("/")
-                    if len(camps)>6 and not link==url2:
+                    if len(camps)>3 and not link==url2:
                         good_links.append(link)
             if len(good_links)==0:
                 break
