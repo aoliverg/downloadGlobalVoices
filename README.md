@@ -27,3 +27,7 @@ fuerte-nevada-provoca-muerte-de-turistas-en-estacion-de-montana-de-pakistan.txt
 
 In this way the automatic alignment will be much easier.
 
+This program is also offered in a version with a simple GUI interface. This version also is provided as a Windows executable in the releases. Once the program is started, the following interface is shown:
+
+![](https://github.com/mtuoc/tutorials/blob/main/images/downloadGlobalVoicesGUI.JPG)
+
