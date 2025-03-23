@@ -70,12 +70,12 @@ def getPageText(link):
         title=title.getText()
         text.append(title)
         
-    divs=soup.findAll("div", {"class" : "postmeta post-tagline"})
+    divs=soup.find_all("div", {"class" : "postmeta post-tagline"})
     for div in divs:
         subtitle=div.getText()
         text.append(subtitle)
         
-    entries=soup.findAll("div", {"class" : "entry"})
+    entries=soup.find_all("div", {"class" : "entry"})
     for entry in entries:
         soup3 = BeautifulSoup(str(entry), 'lxml')
         paras=soup3.find_all("p")
@@ -131,13 +131,14 @@ for month in monthlist:
         allLinksL1.extend(links)
     except:
         pass
-
 for link in allLinksL1:
     print(link)
     camps=link.split("/")
-    filenameL1=camps[-2]+".txt"
-    filenameL2=camps[-2]+".txt"
-
+    if not camps[-1].strip()=="": prefixname=camps[-1]
+    elif not camps[-2].strip()=="": prefixname=camps[-2]
+    elif not camps[-3].strip()=="": prefixname=camps[-3]
+    filenameL1=prefixname+".txt"
+    filenameL2=prefixname+".txt"
     filename=os.path.join(".", directory1, filenameL1)
     output=codecs.open(filename,"w",encoding="utf-8")
 
@@ -150,7 +151,7 @@ for link in allLinksL1:
         output.write(s+"\n")
     output.close()
     try:
-        spanL2=soup.findAll("span", {"class" : "translation-language post-translation-"+lang2})
+        spanL2=soup.find_all("span", {"class" : "translation-language post-translation-"+lang2})
         soup2 = BeautifulSoup(str(spanL2),'lxml')
         linkL2=soup2.find_all("a")[0]['href'] 
         
